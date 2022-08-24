@@ -2,13 +2,17 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.ZoneId;
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 
 import tallerpruebas.Employee;
 import tallerpruebas.EmployeeType;
 
 class EmployeeTest {
-	
+	Date date=new Date();
+	int month=date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue();
 	@Test
 	//Prueba constructores
 	public void testEmployee() {
@@ -19,26 +23,26 @@ class EmployeeTest {
 	@Test
 	public void testWorkerSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Worker);
-		//Caso impar
-		//assertEquals(444.33,e.cs());
-		//Caso par
-		assertEquals(100,e.cs());
+		if(month%2==0)
+			assertEquals(100,e.cs());
+		else
+			assertEquals(444.33,e.cs());
 	}
 	@Test
 	public void testSupervisorSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Supervisor);
-		//Caso impar
-		//assertEquals(444.33,e.cs());
-		//Caso par
-		assertEquals(105.25,e.cs());
+		if(month%2==0)
+			assertEquals(105.25,e.cs());
+		else
+			assertEquals(444.33,e.cs());
 	}
 	@Test
 	public void testManagerSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Manager);
-		//Caso impar
-		//assertEquals(444.33,e.cs());
-		//Caso par
-		assertEquals(110.5,e.cs());
+		if(month%2==0)
+			assertEquals(110.5,e.cs());
+		else
+			assertEquals(444.33,e.cs());
 	}
 	@Test
 	public void testCurrencySalaryNotUSD() {
