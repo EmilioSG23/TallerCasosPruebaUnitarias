@@ -16,7 +16,7 @@ class EmployeeTest {
 		assertNotNull(e);
 	}
 	
-	
+	@Test
 	public void testWorkerSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Worker);
 		//Caso impar
@@ -24,20 +24,23 @@ class EmployeeTest {
 		//Caso par
 		assertEquals(100,e.cs());
 	}
+	@Test
 	public void testSupervisorSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Supervisor);
 		//Caso impar
 		//assertEquals(444.33,e.cs());
 		//Caso par
-		assertEquals(380,e.cs());
+		assertEquals(105.25,e.cs());
 	}
+	@Test
 	public void testManagerSalary() {
 		Employee e=new Employee(100,"USD",15,EmployeeType.Manager);
 		//Caso impar
 		//assertEquals(444.33,e.cs());
 		//Caso par
-		assertEquals(380,e.cs());
+		assertEquals(110.5,e.cs());
 	}
+	@Test
 	public void testCurrencySalaryNotUSD() {
 		Employee e=new Employee(100,"Euro",15,EmployeeType.Worker);
 		assertEquals(95,e.cs());
