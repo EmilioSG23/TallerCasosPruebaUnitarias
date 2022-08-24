@@ -19,5 +19,12 @@ class EmployeeTest {
 	void testWorkerSalary() {
 		
 	}
+	
+	@Test
+	//Prueba constructores
+	public void testEmployee() {
+		Employee e=new Employee(386,"USD",15,EmployeeType.Worker);
+		assertNotNull(e);
+	}
 
 }
